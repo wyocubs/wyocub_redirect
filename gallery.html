@@ -80,37 +80,56 @@
         <a class="next" onclick="changeSlide(1)">&#10095;</a>
     </div>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    let touchstartX = 0;
+    let touchstartY = 0;
+    let touchendX = 0;
+    let touchendY = 0;
 
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
+    function showSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    function changeSlide(n) {
+        showSlide(currentSlide + n);
+    }
+
+    document.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+        touchstartY = e.changedTouches[0].screenY;
+    });
+
+    document.addEventListener('touchmove', e => {
+        // Check if the user is swiping more horizontally than vertically
+        const deltaX = e.changedTouches[0].screenX - touchstartX;
+        const deltaY = e.changedTouches[0].screenY - touchstartY;
+        
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            e.preventDefault(); // Prevent default scrolling
         }
+    }, { passive: false });
 
-        function changeSlide(n) {
-            showSlide(currentSlide + n);
+    document.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        touchendY = e.changedTouches[0].screenY;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const deltaX = touchendX - touchstartX;
+        const deltaY = touchendY - touchstartY;
+        const swipeThreshold = 50; // Minimum distance to be considered a swipe
+
+        // Only handle horizontal swipes if they're more significant than vertical movement
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+            if (deltaX < 0) changeSlide(1);
+            if (deltaX > 0) changeSlide(-1);
         }
-
-        // Touch events for mobile swipe
-        let touchstartX = 0;
-        let touchendX = 0;
-
-        document.addEventListener('touchstart', e => {
-            touchstartX = e.changedTouches[0].screenX;
-        });
-
-        document.addEventListener('touchend', e => {
-            touchendX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            if (touchendX < touchstartX) changeSlide(1);
-            if (touchendX > touchstartX) changeSlide(-1);
-        }
-    </script>
+    }
+</script>
 </body>
 </html>
