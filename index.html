@@ -7,33 +7,69 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+        }
+        .carousel-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            margin: 0 auto;
+        }
+        .carousel-slide {
+            display: none;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+        .caption {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            user-select: none;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .prev {
+            border-radius: 0 3px 3px 0;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.9);
         }
         .container {
-            max-width: 1200px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
+            /* padding: 20px; */
         }
         h1, h2, h3 {
             color: #333;
         }
         .content {
-            background-color: white;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .content h2 {
-            border-bottom: 2px solid #4CAF50;
             padding-bottom: 10px;
         }
         .content ul {
@@ -41,84 +77,121 @@
             padding: 0;
         }
         .content ul li {
-            background: #f9f9f9;
             margin: 10px 0;
             padding: 10px;
-            border-radius: 4px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-        .contact {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .contact p {
-            margin: 5px 0;
-        }
-        footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            .content {
-                margin: 10px 0;
-            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Wyomissing Cub Scouts!</h1>
-    </header>
     <div class="container">
         <div class="content">
-            <h2>Discover Adventure, Fun, and Friendship!</h2>
-            <p>Are you looking for an exciting, enriching experience for your son? Look no further! Wyomissing Cub Scouts is the perfect place for boys from kindergarten to 5th grade to embark on incredible adventures, learn new skills, and make lifelong friends.</p>
+            <h1>Wyomissing Cub Scouts Pack 413</h1>
+            <p>Are you looking for an exciting, enriching experience for your son? Wyomissing Cub Scouts is the perfect place for boys from kindergarten to 5th grade to embark on adventures, learn new skills, and make lifelong friends.</p>
             
-            <h2>Why Choose Cub Scouts?</h2>
+            <p>Our Cub Scouts enjoy two camping weekends each year, including an unforgettable trip to Hawk Mountain, where they can try archery, fishing, zip lines, and other exciting activities. Adventure is always around the corner!</p>
             
-            <h3>Adventure Awaits!</h3>
-            <ul>
-                <li>Our Cub Scouts enjoy two camping weekends each year, including an unforgettable trip to Hawk Mountain, where they can try archery, fishing, zip lines, and other exciting activities. Adventure is always around the corner!</li>
-            </ul>
+            <p>From designing and launching model rockets to building and racing boats in our Rain-gutter Regatta, your son will gain hands-on experience in a variety of skills. Our Pinewood Derby race also challenges the boys to design and build their own cars for a thrilling competition.</p>
             
-            <h3>Learn New Skills</h3>
-            <ul>
-                <li>From designing and launching model rockets to building and racing boats in our Raingutter Regatta, your son will gain hands-on experience in a variety of skills. Our Pinewood Derby race also challenges the boys to design and build their own cars for a thrilling competition.</li>
-            </ul>
+            <p>Being a Cub Scout means being part of a close-knit group of friends. Whether they're hiking in nature, bowling, or enjoying a pool party at the Wyomissing Pool, our scouts bond through fun and engaging activities. Your son will develop social skills and make new friends that can last a lifetime.</p>
             
-            <h3>Make Friends</h3>
-            <ul>
-                <li>Being a Cub Scout means being part of a close-knit group of friends. Whether they're hiking in nature, bowling, or enjoying a pool party at the Wyomissing Pool, our scouts bond through fun and engaging activities. Your son will develop social skills and make new friends that can last a lifetime.</li>
-            </ul>
+            <p>Cub Scouts participate in community service projects, including cleaning up the neighborhood on Earth Day and walking in the Memorial Day parade. These activities teach the value of responsibility, empathy, and giving back to the community.</p>
             
-            <h3>Community Service</h3>
-            <ul>
-                <li>Cub Scouts participate in community service projects, including cleaning up the neighborhood on Earth Day and walking in the Memorial Day parade. These activities teach the value of responsibility, empathy, and giving back to the community.</li>
-            </ul>
+            <p>Our program is packed with fun activities and games. From hiking in nature to enjoying a pool party, there's always something exciting happening. Your son will have a blast while learning and growing in a supportive environment.</p>
             
-            <h3>Fun and Games</h3>
-            <ul>
-                <li>Our program is packed with fun activities and games. From hiking in nature to enjoying a pool party, there's always something exciting happening. Your son will have a blast while learning and growing in a supportive environment.</li>
-            </ul>
-            
-            <h2>Join Us Today!</h2>
-            <p>Ready to join the adventure? Signing up for Wyomissing Cub Scouts is easy! Simply reach out to us through the contact information below, and we’ll guide you through the process. We can’t wait to welcome your son into our pack!</p>
-            
-            <div class="contact">
-                <p><strong>Email:</strong> wyocubs@gmail.com</p>
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="images/archery.jpg" alt="">
+                    <div class="caption">Archery</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/boat_racing.jpg" alt="">
+                    <div class="caption">Boat Racing</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/bowling.jpg" alt="">
+                    <div class="caption">Bowling</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/earth_day.jpg" alt="">
+                    <div class="caption">Earth Day</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/hiking.jpg" alt="">
+                    <div class="caption">Hiking</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/leaf_raking.jpg" alt="">
+                    <div class="caption">Leaf Raking</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/rockets.jpg" alt="">
+                    <div class="caption">Rockets</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/whittling.jpg" alt="">
+                    <div class="caption">Whittling</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/ziplining.jpg" alt="">
+                    <div class="caption">Zip-Lining</div>
+                </div>
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
             </div>
+
+            <p>Ready to join the adventure? Signing up for Wyomissing Cub Scouts is easy! Simply reach out to us at <a href="mailto:wyomissingpack413@gmail.com">wyomissingpack413@gmail.com</a> and we’ll guide you through the process. We can’t wait to welcome your son into our pack!</p>
         </div>
     </div>
-    <footer>
-        <p>Be a Part of Something Great! © 2024 Wyomissing Cub Scouts</p>
-    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        let touchstartX = 0;
+        let touchstartY = 0;
+        let touchendX = 0;
+        let touchendY = 0;
+    
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+    
+        function changeSlide(n) {
+            showSlide(currentSlide + n);
+        }
+    
+        document.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+            touchstartY = e.changedTouches[0].screenY;
+        });
+    
+        document.addEventListener('touchmove', e => {
+            // Check if the user is swiping more horizontally than vertically
+            const deltaX = e.changedTouches[0].screenX - touchstartX;
+            const deltaY = e.changedTouches[0].screenY - touchstartY;
+            
+            if (Math.abs(deltaX * 2.5) > Math.abs(deltaY)) {
+                e.preventDefault(); // Prevent default scrolling
+            }
+        }, { passive: false });
+    
+        document.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            touchendY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+    
+        function handleSwipe() {
+            const deltaX = touchendX - touchstartX;
+            const deltaY = touchendY - touchstartY;
+            const swipeThreshold = 50; // Minimum distance to be considered a swipe
+    
+            // Only handle horizontal swipes if they're more significant than vertical movement
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+                if (deltaX < 0) changeSlide(1);
+                if (deltaX > 0) changeSlide(-1);
+            }
+        }
+    </script>
 </body>
 </html>
