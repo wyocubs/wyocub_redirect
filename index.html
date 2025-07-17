@@ -3,209 +3,550 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wyomissing Cub Scouts</title>
+    <title>Wyomissing Cub Scouts Pack 413</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        * {
             margin: 0;
-        }
-        .carousel-container {
-            position: relative;
-            width: 80%;
-            max-width: 600px;
-            display: flex;
-            margin: 0 auto;
-        }
-        .carousel-slide {
-            display: none;
-        }
-        .carousel-slide.active {
-            display: block;
-        }
-        img {
-            width: 100%;
-            height: auto;
-        }
-        .caption {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            user-select: none;
-            background-color: rgba(0,0,0,0.8);
-        }
-        .prev {
-            border-radius: 0 3px 3px 0;
-        }
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-        .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.9);
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            /* padding: 20px; */
-        }
-        h1, h2, h3 {
-            color: #333;
-        }
-        .content {
-            padding: 20px;
-            margin: 20px 0;
-        }
-        .content h2 {
-            padding-bottom: 10px;
-        }
-        .content ul {
-            list-style-type: none;
             padding: 0;
+            box-sizing: border-box;
         }
-        .content ul li {
-            margin: 10px 0;
-            padding: 10px;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f4f1e8 0%, #e8dcc6 100%);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #3e5641 0%, #2d4a32 50%, #1a2e1f 100%);
+            color: #f4f1e8;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path d="M0,100 Q250,50 500,100 T1000,100 L1000,300 L0,300 Z" fill="%23264a2d" opacity="0.3"/></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            border: 2px solid #f4f1e8;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d4a32;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(61, 86, 65, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #2d4a32;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card h3::before {
+            content: '';
+            font-size: 1.2rem;
+        }
+
+        .activities {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .activities .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .activity-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(61, 86, 65, 0.2);
+        }
+
+        .activity-item:hover {
+            transform: scale(1.05);
+            border-color: #8b4513;
+        }
+
+        .activity-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            filter: sepia(20%);
+        }
+
+        .activity-item h3 {
+            color: #2d4a32;
+            font-size: 1.2rem;
+        }
+
+        .schedule {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .schedule .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .schedule-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .schedule-header {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+            color: white;
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .schedule-item:nth-child(3n+2) .schedule-header {
+            background: linear-gradient(135deg, #2d4a32, #3e5641);
+        }
+
+        .schedule-item:nth-child(3n+3) .schedule-header {
+            background: linear-gradient(135deg, #5d4e37, #7d6a47);
+        }
+
+        .schedule-content {
+            padding: 1.5rem;
+        }
+
+        .schedule-date {
+            color: #8b4513;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-description {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-meta {
+            color: #8b4513;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
+        .schedule-item strong {
+            color: #2d4a32;
+            font-size: 1.1rem;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2d4a32 0%, #1a2e1f 100%);
+            color: #f4f1e8;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><path d="M0,200 Q250,150 500,200 T1000,200 L1000,0 L0,0 Z" fill="%23264a2d" opacity="0.3"/></svg>');
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .contact-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact h2 {
+            color: #f4f1e8;
+        }
+
+        .contact h2::after {
+            background: linear-gradient(45deg, #8b4513, #a0522d);
+        }
+
+        .contact a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #f4f1e8;
+        }
+
+        .nature-accent {
+            display: inline-block;
+            margin: 0 0.5rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="content">
+    <div class="hero">
+        <div class="hero-content">
             <h1>Wyomissing Cub Scouts Pack 413</h1>
-            <p>Are you looking for an exciting, enriching experience for your son? Wyomissing Cub Scouts is the perfect place for boys from kindergarten to 5th grade to embark on adventures, learn new skills, and make lifelong friends.</p>
-            
-            <div class="carousel-container">
-                <div class="carousel-slide active">
-                    <img src="images/archery.jpg" alt="">
-                    <div class="caption">Archery</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/boat_racing.jpg" alt="">
-                    <div class="caption">Boat Racing</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/bowling.jpg" alt="">
-                    <div class="caption">Bowling</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/earth_day.jpg" alt="">
-                    <div class="caption">Earth Day</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/hiking.jpg" alt="">
-                    <div class="caption">Hiking</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/leaf_raking.jpg" alt="">
-                    <div class="caption">Leaf Raking</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/rockets.jpg" alt="">
-                    <div class="caption">Rockets</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/whittling.jpg" alt="">
-                    <div class="caption">Whittling</div>
-                </div>
-                <div class="carousel-slide">
-                    <img src="images/ziplining.jpg" alt="">
-                    <div class="caption">Zip-Lining</div>
-                </div>
-                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-                <a class="next" onclick="changeSlide(1)">&#10095;</a>
-            </div>
-
-            <h2>2024–2025 Schedule</h2>
-            <p>These are some of the main events all scouts can do.</p>
-            <p>Individual dens also do additional events.</p>
-            <ul>
-                <li><strong>Friday, Aug 23, 2024: Pool Party</strong><br />The boys and their families get together at Wyomissing Pool for swimming, food, and activities.</li>
-                <li><strong>Saturday, Oct 5, 2024: Campfire</strong><br />At Happy Hollow park.</li>
-                <li><strong>Friday, Oct 18 to Sunday, Oct 20, 2024: Adventure Day</strong><br />A weekend camping trip with tons of cool activities at Hawk Mountain Scout Reservation</li>
-                <li><strong>Sunday, Nov 3, 2024: Rocket Launch</strong><br />The kids get model rockets, build them and design them at home, and then we launch them. Siblings welcome.</li>
-                <li><strong>Sunday, Dec 1, 2024: Indoor Rock Climbing</strong></li>
-                <li><strong>Sunday, Jan 26, 2025: Pinewood Derby</strong><br />The kids get kits to build and design their own pinewood derby race-cars, and then we all race them. Siblings welcome.</li>
-                <li><strong>Sunday, Feb 16, 2025: Bowling</strong></li>
-                <li><strong>Saturday, Mar 15, 2025: Blue &amp; Gold</strong><br />We gather to eat and celebrate the kids transition to their next scouting level.</li>
-            </ul>
-            
-            <p>Our Cub Scouts enjoy two camping weekends each year, including an unforgettable trip to Hawk Mountain, where they can try archery, fishing, zip lines, and other exciting activities. Adventure is always around the corner!</p>
-            
-            <p>From designing and launching model rockets to building and racing boats in our Rain-gutter Regatta, your son will gain hands-on experience in a variety of skills. Our Pinewood Derby race also challenges the boys to design and build their own cars for a thrilling competition.</p>
-            
-            <p>Being a Cub Scout means being part of a close-knit group of friends. Whether they're hiking in nature, bowling, or enjoying a pool party at the Wyomissing Pool, our scouts bond through fun and engaging activities. Your son will develop social skills and make new friends that can last a lifetime.</p>
-            
-            <p>Cub Scouts participate in community service projects, including cleaning up the neighborhood on Earth Day and walking in the Memorial Day parade. These activities teach the value of responsibility, empathy, and giving back to the community.</p>
-            
-            <p>Our program is packed with fun activities and games. From hiking in nature to enjoying a pool party, there's always something exciting happening. Your son will have a blast while learning and growing in a supportive environment.</p>
-            
-            <p>Ready to join the adventure? Signing up for Wyomissing Cub Scouts is easy! Simply reach out to us at <a href="mailto:wyomissingpack413@gmail.com">wyomissingpack413@gmail.com</a> and we’ll guide you through the process. We can’t wait to welcome your son into our pack!</p>
+            <p>Want your son to try something new? Wyomissing Cub Scouts is for boys kindergarten through 5th grade who want to have fun outdoors, make friends, and learn new skills.</p>
+            <a href="mailto:wyomissingpack413@gmail.com" class="cta-button">Contact Us</a>
         </div>
     </div>
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        let touchstartX = 0;
-        let touchstartY = 0;
-        let touchendX = 0;
-        let touchendY = 0;
-    
-        function showSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-    
-        function changeSlide(n) {
-            showSlide(currentSlide + n);
-        }
-    
-        document.addEventListener('touchstart', e => {
-            touchstartX = e.changedTouches[0].screenX;
-            touchstartY = e.changedTouches[0].screenY;
-        });
-    
-        document.addEventListener('touchmove', e => {
-            // Check if the user is swiping more horizontally than vertically
-            const deltaX = e.changedTouches[0].screenX - touchstartX;
-            const deltaY = e.changedTouches[0].screenY - touchstartY;
-            
-            if (Math.abs(deltaX * 2.5) > Math.abs(deltaY)) {
-                e.preventDefault(); // Prevent default scrolling
-            }
-        }, { passive: false });
-    
-        document.addEventListener('touchend', e => {
-            touchendX = e.changedTouches[0].screenX;
-            touchendY = e.changedTouches[0].screenY;
-            handleSwipe();
-        });
-    
-        function handleSwipe() {
-            const deltaX = touchendX - touchstartX;
-            const deltaY = touchendY - touchstartY;
-            const swipeThreshold = 50; // Minimum distance to be considered a swipe
-    
-            // Only handle horizontal swipes if they're more significant than vertical movement
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
-                if (deltaX < 0) changeSlide(1);
-                if (deltaX > 0) changeSlide(-1);
-            }
-        }
-    </script>
+
+    <div class="container">
+        <section class="section">
+            <h2>What Makes Cub Scouts Special</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Outdoor Adventures</h3>
+                    <p>Scouts enjoy campfires, hiking, and outdoor activities that build confidence. We camp at Hawk Mountain and French Creek, with fun challenges and activities at both locations.</p>
+                </div>
+                <div class="card">
+                    <h3>Lasting Friendships</h3>
+                    <p>Scouts build friendships through shared activities and adventures. They work together on projects and cheer each other on at events like the pinewood derby, creating bonds that often last well beyond the scout years.</p>
+                </div>
+                <div class="card">
+                    <h3>Hands-On Learning</h3>
+                    <p>Scouts take pride in building their own pinewood derby cars and model rockets. These projects teach practical skills and build confidence through hands-on creation.</p>
+                </div>
+                <div class="card">
+                    <h3>Character Building</h3>
+                    <p>Older scouts help younger ones learn new skills, like tying knots and setting up camp. Community service projects like Earth Day cleanup and leaf raking teach responsibility and teamwork.</p>
+                </div>
+                <div class="card">
+                    <h3>Family Involvement</h3>
+                    <p>Parents and siblings are welcomed and encouraged to join many activities. Help with pinewood derby cars, attend campfires, and make scouting a family adventure.</p>
+                </div>
+                <div class="card">
+                    <h3>Local Community</h3>
+                    <p>Our pack is rooted in Wyomissing. We participate in Memorial Day parades and local service projects, teaching scouts the value of giving back to their own neighborhood.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section schedule">
+            <div class="container">
+            <h2>2025–2026 Schedule</h2>
+            <div class="schedule-grid">
+                <div class="schedule-item">
+                    <div class="schedule-header">Pool Party</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">Friday, August 15, 2025<br>4:00 PM - 7:00 PM</div>
+                        <div class="schedule-description">Families get together at Wyomissing Pool for swimming, food, and activities to kick off the scout year.</div>
+                        <div class="schedule-meta">Families welcome</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Campfire</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">October 2025</div>
+                        <div class="schedule-description">An evening campfire gathering for families interested in learning more about scouting.</div>
+                        <div class="schedule-meta">Families welcome</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Adventure Weekend</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">October 2025</div>
+                        <div class="schedule-description">One of the year's highlights! A weekend camping trip at Hawk Mountain Scout Reservation during beautiful fall weather, with many outdoor activities like archery and hiking.</div>
+                        <div class="schedule-meta">Families welcome</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Leaf Raking</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">November 2025</div>
+                        <div class="schedule-description">Help give back to Bausman Church, our charter organization. One of the ways we show appreciation is by raking the church's lawn.</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Rocket Launch</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">November 2025</div>
+                        <div class="schedule-description">Scouts get model rocket kits to build and design at home, then we gather together to launch them and watch their creations take flight.</div>
+                        <div class="schedule-meta">Siblings welcome to participate</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Pinewood Derby</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">January 2026</div>
+                        <div class="schedule-description">Scouts get kits to build and design their own pinewood derby race cars at home, then we race them together in an exciting competition.</div>
+                        <div class="schedule-meta">Siblings welcome to participate</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Blue & Gold Ceremony</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">March 2026</div>
+                        <div class="schedule-description">We celebrate the scouts' achievements and advancement to their next rank.</div>
+                        <div class="schedule-meta">Families welcome</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Earth Day Cleanup</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">April 2026</div>
+                        <div class="schedule-description">Scouts participate in community service by cleaning up our local neighborhood and park areas during the morning.</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Raingutter Regatta</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">May 2026</div>
+                        <div class="schedule-description">Scouts build their own boats and race them in a creek during this fun engineering competition.</div>
+                        <div class="schedule-meta">Siblings welcome to participate</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Memorial Day Parade</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">May 2026</div>
+                        <div class="schedule-description">Scouts participate in the Memorial Day parade to honor our veterans.</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">French Creek Camping</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">June 2026</div>
+                        <div class="schedule-description">A weekend camping trip at French Creek State Park with hiking and outdoor activities.</div>
+                        <div class="schedule-meta">Families welcome</div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item">
+                    <div class="schedule-header">Fourth of July Parade</div>
+                    <div class="schedule-content">
+                        <div class="schedule-date">July 4, 2026</div>
+                        <div class="schedule-description">Scouts participate in the Fourth of July parade to celebrate our nation's independence.</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="section activities">
+            <div class="container">
+                <h2>What We Do</h2>
+                <div class="activity-grid">
+                <div class="activity-item">
+                    <img src="images/archery.jpg" alt="Archery">
+                    <h3>Archery</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/boat_racing.jpg" alt="Boat Racing">
+                    <h3>Boat Racing</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/hiking.jpg" alt="Hiking">
+                    <h3>Hiking</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/rockets.jpg" alt="Rockets">
+                    <h3>Model Rockets</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/ziplining.jpg" alt="Ziplining">
+                    <h3>Outdoor Fun</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/bowling.jpg" alt="Bowling">
+                    <h3>Bowling</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/earth_day.jpg" alt="Earth Day Cleanup">
+                    <h3>Earth Day Cleanup</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/leaf_raking.jpg" alt="Leaf Raking">
+                    <h3>Leaf Raking</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/whittling.jpg" alt="Whittling">
+                    <h3>Whittling</h3>
+                </div>
+                <div class="activity-item">
+                    <img src="images/pinewood_derby.jpg" alt="Pinewood Derby">
+                    <h3>Pinewood Derby</h3>
+                </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="contact">
+        <div class="contact-content">
+            <div class="container">
+                <section class="section">
+                    <h2>Ready to Join?</h2>
+                    <p>Interested in learning more about Wyomissing Cub Scouts? We'd love to answer your questions and help you get started.</p>
+                    <span class="nature-accent">🌲</span>
+                    <a href="mailto:wyomissingpack413@gmail.com">wyomissingpack413@gmail.com</a>
+                    <span class="nature-accent">🌲</span>
+                </section>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
